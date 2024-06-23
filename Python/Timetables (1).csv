@@ -1,0 +1,18 @@
+﻿Name,Type,Day,Start time,Duration,Location,Weeks,Source
+ENGGEN 204/S2/C/LEC01/01,Lecture,Monday,14:00,1h,260-098,,Personal
+COMPSYS 209/S2/C/LEC01/01+ELECTENG 209/S2/C/LEC01/01,Lecture,Monday,16:00,2h,405-470,,Personal
+ELECTENG 204/S2/C/LEC01/01,Lecture,Tuesday,11:00,1h,201-440,,Personal
+ENGGEN 204/S2/C/TUT01/01,Tutorial,Tuesday,13:00,1h,405-422,,Personal
+ENGGEN 204/S2/C/LEC02/01,Lecture,Tuesday,14:00,1h,260-098,,Personal
+COMPSYS 209/S2/C/LEC02/01+ELECTENG 209/S2/C/LEC02/01,Lecture,Wednesday,11:00,2h,Eng1439/401-439,,Personal
+ELECTENG 292/S2/C/LEC01/01,Lecture,Wednesday,14:00,1h,405-460,,Personal
+COMPSYS 209/S2/C/LAB01/02+ELECTENG 209/S2/C/LAB01/02,Laboratory,Wednesday,16:00,3h,"405-522, 405-536",,Personal
+ELECTENG 204/S2/C/LEC02/01,Lecture,Thursday,12:00,1h,MLT2/303-102,,Personal
+ELECTENG 292/S2/C/LEC02/01,Lecture,Thursday,14:00,1h,405-460,,Personal
+ELECTENG 204/S2/C/LEC03/01,Lecture,Friday,12:00,1h,PLT1/303-G20,,Personal
+ELECTENG 292/S2/C/LEC03/01,Lecture,Friday,13:00,1h,405-460,,Personal
+ELECTENG 204/S2/C/TUT01/01,Tutorial,Friday,14:00,1h,MLT1/303-G23,,Personal
+COMPSYS 209/S2/C/LAB02/02+ELECTENG 209/S2/C/LAB02/02,Laboratory,Friday,16:00,3h,"405-522, 405-536",,Personal
+ELECTENG 292/S2/C/LAB01/01,Laboratory,Monday,09:00,2h,405-522,,Personal
+ELECTENG 292/S2/C/TUT01/02,Tutorial,Monday,15:00,1h,405-222,,Personal
+ELECTENG 204/S2/C/LAB01/01,Laboratory,Tuesday,08:00,2h,405-541,,Personal
