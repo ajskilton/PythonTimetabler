@@ -104,6 +104,7 @@ def get_my_timetable(start_year: int, start_month: int, start_day: int, weeks_du
 
                 if hour >= 12 and not break_taken and is_available:
                     create_event(cal_self, "BREAK TIME", "NA", date, 1, "anywhere")
+                    last_subject = "BREAK TIME"
                     break_taken = True
                     continue
 
@@ -131,6 +132,7 @@ def get_my_timetable(start_year: int, start_month: int, start_day: int, weeks_du
     print("\nAvg weekly hours over", end_week, "weeks")
     for key, value in totals.items():
         print(key, value/end_week, "hours")
+
 
 
 
