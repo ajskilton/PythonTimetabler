@@ -1,7 +1,4 @@
 # This code is used to create a timetable for a week using the data from a CSV file.
-# The CSV file contains the following columns: Name, Option, Day, Start Time, Duration, Location
-
-import csv
 from math import floor
 from ics import Calendar, Event
 import arrow
@@ -32,31 +29,26 @@ def sum_totals(totals, name, duration):
 
 def create_event(calender, name, type, date_time, duration_hours, location):
     event = Event()
-    # Set the name of the event
-    event.name = name + "-" + type
-    # Set date  and time of event from next Monday
-    event.begin = date_time
-    # Set the end time of the event
-    event.end = event.begin.shift(hours=duration_hours)
-    # Set the location of the event
-    event.location = location
-    # Add the event to the calendar
-    calender.events.add(event)
+    event.name = name + "-" + type # Set the name of the event
+    event.begin = date_time # Set date and time of event from next Monday
+    event.end = event.begin.shift(hours=duration_hours) # Set the end time of the event
+    event.location = location # Set the location of the event
+    calender.events.add(event) # Add the event to the calendar
 
 def is_time_slot_available(calender, date_time: arrow):
     for event in calender.events:
         if(event.begin - date_time).days == 0:
             if(event.begin - date_time).days == 0 and date_time.hour >= event.begin.hour and date_time.hour < event.end.hour:
                 return False
-    # no event at that time
-    return True
+
+    return True # no event at that time
 
 def get_my_timetable(start_year: int, start_month: int, start_day: int, weeks_duration: int, calender_url: str):
     # Dictionary to store the total duration of each subject
     totals = {}
 
     # Get the current date and time
-    now = arrow.now('+12:00').replace(hour=0, minute=0, second=0, microsecond=0)
+    now = arrow.now('Pacific/Auckland').replace(hour=0, minute=0, second=0, microsecond=0)
 
     firstDay = arrow.get(datetime(start_year, start_month, start_day, hour=0, minute=0, second=0, microsecond=0), tzinfo='+12:00')
     lastDay = firstDay.shift(weeks=+weeks_duration)
@@ -88,9 +80,8 @@ def get_my_timetable(start_year: int, start_month: int, start_day: int, weeks_du
 
     # Create self-study events
     # Calculate which subject has the least total duration
-    event_exists = False
-    next_hour_unavailable = False
     last_subject = ""
+    
 
     end_week = (lastDay - firstDay).days//7
     # Create self-study events
@@ -99,6 +90,14 @@ def get_my_timetable(start_year: int, start_month: int, start_day: int, weeks_du
             break_taken = False
             for hour in range(9, 17):
                 date = firstDay.shift(weeks=+week, days=+week_day, hours=+hour)
+
+                print()
+                print(date.format('YYYY-MM-DD HH:mm:ss'))
+                if date > arrow.get('2024/09/29', 'YYYY/MM/DD', tzinfo='+12:00') and date < arrow.get('2025/04/06', 'YYYY/MM/DD', tzinfo='+12:00'):
+                    print("date is between 29/09/2024 and 06/04/2025")
+                    date = date.shift(hours=-1)
+                    print(date.format('YYYY-MM-DD HH:mm:ss'))
+                    
 
                 is_available = is_time_slot_available(cal_timetable, date)
 
@@ -138,4 +137,4 @@ def get_my_timetable(start_year: int, start_month: int, start_day: int, weeks_du
 
 
 # for alex in 2024 sem 2
-# get_my_timetable(2024, 7, 15, 6, "https://cyon-syd-v4-api-d4-01.azurewebsites.net//api/ical/9918847d-0e11-4f16-9354-2df982b9374d/28a887ff-0b5a-16ee-05f1-eac61d9b129c/timetable.ics")
+get_my_timetable(2024, 7, 15, 14, "https://cyon-syd-v4-api-d4-01.azurewebsites.net//api/ical/9918847d-0e11-4f16-9354-2df982b9374d/28a887ff-0b5a-16ee-05f1-eac61d9b129c/timetable.ics")
